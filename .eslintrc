@@ -1,0 +1,30 @@
+{
+  "extends": ["airbnb-base", "plugin:jest/recommended", "prettier"],
+  "plugins": ["babel", "import", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "off", // airbnb использует предупреждение
+    "no-alert": "error", // airbnb использует предупреждение
+    "no-plusplus": "off",
+    "import/no-unresolved": "off",
+    "max-len": ["error", { "ignoreUrls": true, "ignoreRegExpLiterals": true }],
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  }
+}
