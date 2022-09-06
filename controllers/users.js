@@ -54,25 +54,27 @@ const createUser = (req, res, next) => {
   bcrypt
     .hash(password, SALT_ROUNDS)
     .then((hash) => {
-      User.create({
+      return User.create({
         name,
         email,
         password: hash,
-      });
+      })
     })
-    .then((user) =>
-      res.status(createdStatus).send({
+    .then((user) => {
+      return res.status(createdStatus).send({
         _id: user._id,
         name: user.name,
         email: user.email,
-      }),
-    )
+      });
+    })
     .catch((err) => {
+      console.log(err);
       if (err.name === 'ValidationError') {
         next(new BadRequestError(userData));
       } else if (err.code === MONGO_DUPLICATE_ERROR_CODE) {
         next(new ConflictError(emailIsUsed));
       } else {
+        console.log(MONGO_DUPLICATE_ERROR_CODE);
         next(err);
       }
     });
@@ -97,9 +99,7 @@ const login = (req, res, next) => {
 
       return generateToken({ _id: user._id }, '7d');
     })
-    .then((token) => {
-      res.send({ token });
-    })
+    .then((token) => res.send({ token }))
     .catch(next);
 };
 
