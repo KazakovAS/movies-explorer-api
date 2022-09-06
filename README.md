@@ -62,8 +62,8 @@
 | DELETE | /movies/:id | Да      | Удаляет сохранённый фильм по id                                                                                                         |
 | GET    | /movies     | Да      | Возвращает все сохранённые текущим пользователем фильмы                                                                                 |
 | POST   | /movies     | Да      | Создаёт фильм с переданными в теле: country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail и movieId |
-| POST   | /sign-up    | Нет     | Создаёт пользователя с переданными в теле: email, password и name                                                                       |
-| POST   | /sign-in    | Нет     | Проверяет переданные в теле почту и пароль, возвращает JWT и авторизирует пользователя                                                  |
+| POST   | /signup     | Нет     | Создаёт пользователя с переданными в теле: email, password и name                                                                       |
+| POST   | /signin     | Нет     | Проверяет переданные в теле почту и пароль, возвращает JWT и авторизирует пользователя                                                  |
 
 ## Файловая структура:
 

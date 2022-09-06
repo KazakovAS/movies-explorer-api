@@ -10,8 +10,8 @@ const {
 const notFoundPage = require('../middlewares/notFoundPage');
 const { createUser, login } = require('../controllers/users');
 
-router.post('/sign-up', validateUser, createUser);
-router.post('/sign-in', validateAuthorization, login);
+router.post('/signup', validateUser, createUser);
+router.post('/signin', validateAuthorization, login);
 
 router.use(authorization);
 router.use('/movies', movieRouter);
