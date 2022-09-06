@@ -58,7 +58,7 @@ const createUser = (req, res, next) => {
         name,
         email,
         password: hash,
-      })
+      });
     })
     .then((user) => {
       return res.status(createdStatus).send({

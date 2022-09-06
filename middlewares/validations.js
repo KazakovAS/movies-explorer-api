@@ -5,8 +5,8 @@ const { invalidId } = require('../utils/http-request');
 
 const urlRegExp =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
-const isLatinSymbols = /^[?!,.A-Za-z0-9\s]+$/;
-const isCyrillicSymbols = /^[?!,.а-яА-ЯёЁ0-9\s]+$/;
+const isLatinSymbols = /^[-?!,.A-Za-z0-9\s]+$/;
+const isCyrillicSymbols = /^[-?!,.а-яА-ЯёЁ0-9\s]+$/;
 
 const validateAuthorization = celebrate({
   body: Joi.object().keys({
@@ -45,6 +45,7 @@ const validateUserInfo = celebrate({
 
 const validateMovie = celebrate({
   body: Joi.object().keys({
+    movieId: Joi.string().required(),
     nameRU: Joi.string().required().pattern(isCyrillicSymbols),
     nameEN: Joi.string().required().pattern(isLatinSymbols),
     description: Joi.string().required(),

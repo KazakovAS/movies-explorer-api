@@ -19,7 +19,9 @@
     "no-plusplus": "off",
     "import/no-unresolved": "off",
     "max-len": ["error", { "ignoreUrls": true, "ignoreRegExpLiterals": true }],
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   },
   "env": {
     "browser": true,
