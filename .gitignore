@@ -15,7 +15,7 @@ dist
 .npm
 
 # local env files
-#.env
+.env
 .env.*.local
 
 # Logs
