@@ -9,7 +9,7 @@ const ConflictError = require('../errors/ConflictError');
 const {
   created: { status: createdStatus },
   badRequest: { userData, userId },
-  unauthorized: { userDoesNotExist, incorrectAuthData },
+  unauthorized: { incorrectAuthData },
   notFound: { user: notFoundUser },
   conflict: { emailIsUsed },
 } = require('../utils/http-request');
@@ -42,6 +42,8 @@ const updateCurrentUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError(userId));
+      } else if (err.code === MONGO_DUPLICATE_ERROR_CODE) {
+        next(new ConflictError(emailIsUsed));
       } else {
         next(err);
       }
@@ -68,13 +70,11 @@ const createUser = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
       if (err.name === 'ValidationError') {
         next(new BadRequestError(userData));
       } else if (err.code === MONGO_DUPLICATE_ERROR_CODE) {
         next(new ConflictError(emailIsUsed));
       } else {
-        console.log(MONGO_DUPLICATE_ERROR_CODE);
         next(err);
       }
     });
@@ -87,7 +87,7 @@ const login = (req, res, next) => {
     .select('+password')
     .then((user) => {
       if (!user) {
-        throw new UnauthorizedError(userDoesNotExist);
+        throw new UnauthorizedError(incorrectAuthData);
       }
 
       return Promise.all([user, bcrypt.compare(password, user.password)]);

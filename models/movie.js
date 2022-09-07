@@ -7,7 +7,7 @@ const movieSchema = new mongoose.Schema(
   {
     movieId: {
       required: true,
-      type: String,
+      type: Number,
     },
     owner: {
       required: true,

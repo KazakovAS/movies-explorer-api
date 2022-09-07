@@ -12,7 +12,6 @@ module.exports = {
   unauthorized: {
     status: 401,
     defaultMessage: 'Необходима авторизация.',
-    userDoesNotExist: 'Пользователь не существует.',
     incorrectAuthData: 'Не правильный email или пароль.',
   },
   forbidden: {

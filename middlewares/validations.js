@@ -45,7 +45,7 @@ const validateUserInfo = celebrate({
 
 const validateMovie = celebrate({
   body: Joi.object().keys({
-    movieId: Joi.string().required(),
+    movieId: Joi.number().required(),
     nameRU: Joi.string().required().pattern(isCyrillicSymbols),
     nameEN: Joi.string().required().pattern(isLatinSymbols),
     description: Joi.string().required(),

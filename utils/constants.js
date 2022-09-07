@@ -3,7 +3,7 @@ require('dotenv').config();
 const {
   MONGO_DB = 'mongodb://localhost:27017/moviesdb',
   PORT = 3000,
-  JWT_SECRET = "WABBA_LABA_DUB_DUB"
+  JWT_SECRET = 'WABBA_LABA_DUB_DUB',
 } = process.env;
 const MONGO_DUPLICATE_ERROR_CODE = 11000;
 const SALT_ROUNDS = 10;
