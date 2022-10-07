@@ -18,8 +18,8 @@ mongoose.connect(MONGO_DB);
 app.use(requestLogger);
 app.use(helmet());
 app.use(limiter);
-// app.use(cors({ origin: ALLOWED_DOMAINS }));
-app.use(cors());
+app.use(cors({ origin: ALLOWED_DOMAINS }));
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
