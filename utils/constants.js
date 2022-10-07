@@ -10,6 +10,7 @@ const SALT_ROUNDS = 10;
 
 const ALLOWED_DOMAINS = [
   /https?:\/\/localhost:3000/,
+  /https?:\/\/localhost:3001/,
   /https?:\/\/lerush.nomoredomains.sbs/,
 ];
 
