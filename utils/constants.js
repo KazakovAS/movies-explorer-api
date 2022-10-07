@@ -9,9 +9,12 @@ const MONGO_DUPLICATE_ERROR_CODE = 11000;
 const SALT_ROUNDS = 10;
 
 const ALLOWED_DOMAINS = [
-  /https?:\/\/localhost:3000/,
-  /https?:\/\/localhost:3001/,
-  /https?:\/\/lerush.nomoredomains.sbs/,
+  'http://localhost:3000',
+  'https://localhost:3000',
+  'http://localhost:3001',
+  'https://localhost:3001',
+  'https://lerush.nomoredomains.sbs',
+  'https://lerush.nomoredomains.sbs',
 ];
 
 module.exports = {
