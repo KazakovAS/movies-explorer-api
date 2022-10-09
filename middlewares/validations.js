@@ -5,8 +5,8 @@ const { invalidId } = require('../utils/http-request');
 
 const urlRegExp =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/;
-const isLatinSymbols = /^[-?!,&*:—.A-Za-z0-9\s]+$/;
-const isCyrillicSymbols = /^[-?!,&*:—.A-Za-zа-яА-ЯёЁ0-9\s]+$/;
+const isLatinSymbols = /^[-?!,&*«»:—.A-Za-z0-9\s]+$/;
+const isCyrillicSymbols = /^[-?!,&*«»:—.A-Za-zа-яА-ЯёЁ0-9\s]+$/;
 
 const validateAuthorization = celebrate({
   body: Joi.object().keys({
